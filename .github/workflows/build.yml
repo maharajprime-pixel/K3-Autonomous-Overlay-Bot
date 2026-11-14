@@ -25,11 +25,16 @@ jobs:
         with:
           gradle-version: '8.9'
 
-      - name: Install Android SDK packages
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: 12266719
+
+      - name: Install Android SDK
         run: |
           sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
-      - name: Extract project ZIP
+      - name: Extract project
         run: |
           unzip -q K3-Autonomous-Overlay-Bot-GitHub-Ready.zip -d project
 
